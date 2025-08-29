@@ -73,3 +73,37 @@ See [koinonia_mvp_tasks.csv](./koinonia_mvp_tasks.csv) for the full MVP checklis
 This project is open for collaboration with friends and fellow believers.  
 The goal is to grow together — in fellowship and faith — through code and creativity.
 
+## ✅ To-Do List (MVP Roadmap)
+
+### Setup
+- [ ] Initialize Go backend (`/backend`)
+- [ ] Initialize Next.js frontend (`/frontend`)
+- [ ] Setup Postgres database (local Docker or Supabase/Neon)
+
+---
+
+### Backend (Go)
+- [ ] Create `/hello` test endpoint
+- [ ] Setup DB models: `users`, `quests`, `submissions`, `points_history`
+- [ ] Implement `/auth/register` (store hashed password, return JWT)
+- [ ] Implement `/auth/login` (validate credentials, return JWT)
+- [ ] Implement `/quests` (list active quests)
+- [ ] Implement `/quests/:id/submit` (store submission, mark as pending)
+- [ ] Implement `/admin/submissions` (approve/reject submissions → add points)
+- [ ] Implement `/leaderboard` (return users sorted by points)
+
+---
+
+### Frontend (Next.js)
+- [ ] Build signup/login forms (connect to backend auth)
+- [ ] Display current quests (fetched from backend)
+- [ ] Build “submit quest” page (upload proof, send to backend)
+- [ ] Build leaderboard page (fetch & display rankings)
+- [ ] Add Navbar with user profile + points
+
+---
+
+### MVP Complete When:
+- [ ] A user can sign up, log in, see quests, submit one, and appear on the leaderboard after admin approval
+
+
