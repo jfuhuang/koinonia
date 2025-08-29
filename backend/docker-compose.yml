@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    container_name: koinonia-postgres
+    environment:
+      POSTGRES_DB: koinonia
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d
+    networks:
+      - koinonia-network
+
+  # Go Backend API (uncomment when ready to containerize)
+  # api:
+  #   build: .
+  #   container_name: koinonia-api
+  #   environment:
+  #     DB_HOST: postgres
+  #     DB_PORT: 5432
+  #     DB_USER: postgres
+  #     DB_PASSWORD: password
+  #     DB_NAME: koinonia
+  #     PORT: 8080
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - postgres
+  #   networks:
+  #     - koinonia-network
+
+volumes:
+  postgres_data:
+
+networks:
+  koinonia-network:
+    driver: bridge
